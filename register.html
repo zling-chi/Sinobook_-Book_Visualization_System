@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册 - 教材可视化系统</title>
+    <style>
+        body {
+            /* 修正路径 */
+            background: url("{{ url_for('static', filename='images/background/background.webp') }}") no-repeat center center fixed;
+            background-size: cover;
+
+            /* 居中布局 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+
+        .login-card { 
+            background: rgba(255, 255, 255, 0.9); 
+            padding: 40px; 
+            border-radius: 12px; 
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3); 
+            width: 360px; 
+        }
+
+        h2 { text-align: center; color: #00838F; margin-bottom: 20px; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #00838F; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #006064; }
+        p { text-align: center; font-size: 14px; margin-top: 15px; }
+        a { color: #00838F; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <h2>新用户注册</h2>
+        <form action="/register" method="POST">
+            <input type="text" name="username" placeholder="用户名" required>
+            <input type="email" name="email" placeholder="邮箱（可选）">
+            <input type="password" name="password" placeholder="密码" required>
+            <button type="submit">立即注册</button>
+        </form>
+        <p>已有账号？<a href="/login">去登录</a></p>
+        <p><a href="/" style="color: #999; font-size: 13px;">👁 以游客身份浏览可视化数据</a></p>
+    </div>
+</body>
+</html>
